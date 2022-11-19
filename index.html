@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css"/>
+  <title>Library</title>
+</head>
+<body>
+  <header>Library</header>
+  <div id="libraryWrap">
+    <button id="newBook">+ Add Book</button>
+  </div>
+  <div id="formWrap" class="hiddenForm">
+    <form id="submitBook">
+      <input id="title" type="text" placeholder="title*" name="title" required autofocus>
+      <input id="author" type="text" placeholder="author*" name="author" required>
+      <input id="pages" type="number" placeholder="pages*" name="pages" required>
+      <input id="read" type="checkbox" name="read" value="read">
+      <label for="read">Have you read it?</label>
+      <input type="submit">
+    </form>
+  </div>
+<script src="app.js"></script>
+</body>
+</html>

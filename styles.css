@@ -1,0 +1,28 @@
+.hiddenForm{
+  display: none;
+}
+
+.activeForm{
+  display: grid;
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  background-color: black;
+}
+
+.cardText{
+  font-size: large;
+  color: pink;
+}
+
+.read{
+  background-color: green;
+}
+
+.notRead{
+  background-color: red;
+}
+
+.remove{
+  background-color: grey;
+}
