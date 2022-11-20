@@ -41,6 +41,7 @@ function addBookToLibrary(title, author, pages, read){
 
 function displayBook(book, number){
   const bookCardWrap = document.createElement('div');
+  bookCardWrap.classList.add('bookCardWrap')
   const bookCard = {
     title: document.createElement('div'),
     author: document.createElement('div'),
