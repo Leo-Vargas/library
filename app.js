@@ -36,7 +36,7 @@ function handleForm(){
 function addBookToLibrary(title, author, pages, read){
   const book = new Book(title, author, pages, read)
   myLibrary.push(book)
-  displayBook(book, myLibrary.length)
+  displayBook(book, myLibrary.length - 1)
 }
 
 function displayBook(book, number){
@@ -63,6 +63,7 @@ function displayBook(book, number){
         bookCard[property].innerText = 'Not read'
         bookCard[property].classList.add('notRead')
       }
+      bookCard[property].addEventListener('click', updateReadindStatus)
     }
     bookCardWrap.appendChild(bookCard[property])
   }
@@ -73,11 +74,28 @@ function displayBook(book, number){
   bookCardWrap.appendChild(bookCard.remove)
 
 
-  libraryWrap.dataset.index = number;
+  bookCardWrap.dataset.index = number;
   libraryWrap.appendChild(bookCardWrap)
 }
 
 function removeCard(e){
-  e.target.parentElement.style.display = 'none'
-  myLibrary.splice(e.target.dataset.index, 1)
+  myLibrary.splice(e.target.parentElement.dataset.index, 1)
+
+  let nextSibling = e.target.parentElement.nextElementSibling
+
+  while(nextSibling) {
+    nextSibling.dataset.index--
+    nextSibling = nextSibling.nextElementSibling
+  }
+
+  e.target.parentElement.remove()
+
+}
+
+function updateReadindStatus(e){
+
+  myLibrary[e.target.parentElement.dataset.index].read = e.target.classList.contains('read') == true ? false : true;
+
+  e.target.classList.toggle('read')
+  e.target.classList.toggle('notRead')
 }
