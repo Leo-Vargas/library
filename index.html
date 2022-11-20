@@ -6,17 +6,23 @@
   <title>Library</title>
 </head>
 <body>
-  <header>Library</header>
+  <header>LIBRARY</header>
   <div id="libraryWrap">
-    <button id="newBook">+ Add Book</button>
   </div>
+  <div id="newBookWrap">
+  <button id="newBook">+ Add Book</button>
+  </div>
+  
   <div id="formWrap" class="hiddenForm">
     <form id="submitBook">
-      <input id="title" type="text" placeholder="title*" name="title" required autofocus>
-      <input id="author" type="text" placeholder="author*" name="author" required>
-      <input id="pages" type="number" placeholder="pages*" name="pages" required>
-      <input id="read" type="checkbox" name="read" value="read">
+      <div id="addNewBook">ADD NEW BOOK</div>
+      <input id="title" type="text" placeholder="Title*" name="title" maxlength="100" required autofocus>
+      <input id="author" type="text" placeholder="Author*" name="author" maxlength="100" required>
+      <input id="pages" type="number" placeholder="Pages*" name="pages" max="10000" required>
+      <div id="cheboxWrap">
       <label for="read">Have you read it?</label>
+      <input id="read" type="checkbox" name="read" value="read">
+      </div>
       <input type="submit">
     </form>
   </div>

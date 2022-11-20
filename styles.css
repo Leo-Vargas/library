@@ -1,18 +1,120 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+  --bgColor: rgb(234, 234, 234);
+}
+
+body{
+background-color: var(--bgColor);
+}
+
+button{
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  outline: solid 1px black;
+  padding: 5px 12px 5px 12px;
+}
+
+header{
+  height: 70px;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#newBookWrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#newBook{
+  outline: solid 1px black;
+  padding: 5px 12px 5px 12px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: var(--bgColor);
+}
+
+#newBook:hover{
+  outline: solid 2px black;
+}
+
 .hiddenForm{
   display: none;
 }
 
 .activeForm{
-  display: grid;
   display: flex;
-  flex-direction: row;
-  width: 400px;
-  background-color: black;
+  justify-content: center;
+  background-color: white;
+
+  outline: solid 4px black;
+  outline-offset: -14px;
+
+  height: 450px;
+  width: 250px;
+  position: fixed;
+  top: 200px;
+  left: calc(50vw - ((250px+20px)/2));
+  padding: 20px;
+
+}
+
+#submitBook{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+#addNewBook{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+input[type="text"], input[type="number"]{
+  font-size: 18px;
+  border: none;
+  outline: black 1px solid;
+  padding: 5px 5px 5px 5px;
+}
+
+input[type="checkbox"]{
+  cursor: pointer;
+}
+
+input[type="submit"]{
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  outline: solid 1px black;
+  padding: 4px 10px 4px 10px;
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+label{
+  font-size: 18px;
 }
 
 .cardText{
   font-size: large;
   color: pink;
+}
+
+#libraryWrap{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 10px;
 }
 
 .read{
