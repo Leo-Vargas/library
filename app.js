@@ -24,6 +24,7 @@ function getFormData(e){
   e.preventDefault()
 
   handleForm()
+  document.body.removeEventListener('click', handleFormOutside, true)
   addBookToLibrary(formData.get('title'), formData.get('author'), formData.get('pages'), read)
   e.target.reset()
 }
@@ -31,6 +32,30 @@ function getFormData(e){
 function handleForm(){
   formWrap.classList.toggle('hiddenForm')
   formWrap.classList.toggle('activeForm')
+  applyFilter()
+
+  document.body.addEventListener('click', handleFormOutside, true)
+}
+
+function handleFormOutside(e){
+  if (!formWrap.contains(e.target)){
+    document.body.removeEventListener('click', handleFormOutside, true)
+    formWrap.classList.toggle('hiddenForm')
+    formWrap.classList.toggle('activeForm')
+    applyFilter()
+  }
+  return
+}
+
+function applyFilter(){
+  let element = document.body.firstChild.nextElementSibling
+
+  while(element) {
+    if (element !== formWrap){
+      element.classList.toggle('filtered')
+    }
+    element = element.nextElementSibling
+  }
 }
 
 function addBookToLibrary(title, author, pages, read){
